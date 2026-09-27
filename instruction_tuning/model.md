@@ -26,3 +26,5 @@
 Start withi Llama or Qwen thanks to mature ecosystems
 For reasoning or coding, a DeepSeek variant that fits your hardware is worth trying
 Mixture-of-Experts is now the default architecture at the frontier of the open ecosystem.
+
+highest roi papers rn: LIMA, LORA, MAMBA

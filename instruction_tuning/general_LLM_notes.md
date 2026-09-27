@@ -17,6 +17,19 @@ Unlike supervised fine-tuning, humans generally don't need to write ideal respon
 
 Pretraining builds the general model; fine-tunign specializes its behavior.
 
+Two pretraining objectives:
+- Next-token prediction (causal language modeling): Predict the next token using all previous tokens
+
+The capital of France is → Paris
+
+Used by GPT-style generative LLMs
+
+- Masked language modeling (MLM): Hide some tokens and predict them using context on both sides.
+
+The capital of [MASK] is Paris -> France
+
+Used by BERT-style models, mainly for language understanding. 
+
 ## Fine-tuning
 
 Fine-tuning an LLM means continuing to train an already pretrained model on a smaller, specialized dataset so its behavior or capabilities change.
@@ -89,5 +102,17 @@ Other key terms to study later:
 
 
 
+
+# POST TRAINING
+Pretraining -> Base model, a next-token predictor with broad knowledge but no particular inclination to be useful.
+
+Post-training -> shapes behavior rather than adding knowledge. 
+    - An example is SFT (supervised fine-tuning) which is where you provide the model with prompt-response demonstrations
+    - With plain cross-entropy loss, followed by 
+
+
+RL requires a lot of compute to run on models.
+
+# RL Environments
 
 

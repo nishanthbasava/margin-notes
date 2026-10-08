@@ -13,3 +13,11 @@ A complete, runnable training script. LoRA fine-tuning of Qwen3-1.7B-Base on 4,0
 Essentially, I took a raw pretrained model that can only continue text and instruction-tuned it into a multi-turn chat assistant, using LoRA on 4,000 example conversations.
 
 SFT at this scale mostly teaches behavior and format, not new knowledge. The model already "knows" things from pretraining. 
+
+bf16 just means converting the weights from fp32 32-bit floating point (which is what they are set to by default) to bf16 16-bit floating point. Saving memory.
+
+Gradient Checkpointing.
+Essentially a way to save memory by throwing away intermediate activations. You just recompute them from nearest activation you saved.
+In a transformer, an activation is a vector for every token.
+If the hidden size is 4096, then the word "cat" at layer 5 is represented by 4096 numbers. 
+For a transformer, gradient checkpointing looks like save the input to every transformer block, discard everything computed inside the block, and during backprop rerun that block's forward pass to regenerate what's needed.

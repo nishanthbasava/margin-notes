@@ -1,5 +1,6 @@
 GRPO
 Video I'm following: https://www.youtube.com/watch?v=mXWiDU9-fOk
+https://arxiv.org/pdf/2402.03300 (GRPO paper) 
 
 ## GRPO Objective
 

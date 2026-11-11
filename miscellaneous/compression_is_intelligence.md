@@ -60,3 +60,18 @@ So that's why KL-Divergence measures the change in the distribution.
 KL Divergence of P || Q = Cross Entropy (P, Q) - Entropy (P)
 
 Essentially pre-training is just trying to get the model to approach the Entropy of language
+Cross Entropy (P, Q) = sum (i) Pi -log(Qi)
+so basically we have a really skewed true distribution Pi that we are treating as the ground truth.
+- I don't like this. language is NOT a truly skewed distribution like this. We are really overfitting to that one training sample rather than the true "Entropy of Language"
+Oh but like its not just one training sample.
+
+You are calculating the loss for every time that the next word appears in the full dataset. So essentially you're really banking on the idea that you're dataset represents the true entropy of language. 
+
+Cross entropy of our model's output compared to the actual statistics in the data itself.
+- But what if you sample the statistics first, build like a hash function or something, and then calculate the cross entropy for each using that? 
+- Wait but why would two texts have the EXACT same sequence of tokens? They wouldn't.
+
+Distillation is more intuitively cross entropy because there really are two specific distribution and you are using the cross entropy more explicitly
+
+
+Negative Log Likelihood Loss (like NLLLoss in Pytorch)

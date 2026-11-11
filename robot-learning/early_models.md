@@ -63,4 +63,8 @@ What RT-1 outputs:
 
 Every continuous action variable is neatly sliced into 256 discrete bins (using standard cateogorical cross-entropy loss), turning continuous motor control into a classification problem that Transformers excel at solving.
 
+RT-2
+
+
+
 

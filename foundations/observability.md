@@ -1,0 +1,2 @@
+## Observability
+Observability: watching what a deployed system does from the outside. Logs, traces, and metrics over inputs, outputs, tool calls, latency, cost, and failures. The model is a black box. Borrowed from software engineering (e.g. LangSmith, Arize).

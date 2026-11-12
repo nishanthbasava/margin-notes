@@ -9,7 +9,17 @@
 - MLP layer has about 2/3 of the model parameters, they allow extra capacity for the model to store facts.
 - Linear, ReLU, then another Linear
 
-rewatch the DL Chapter 5 and 6 videos for KV caching 
+Attention moves information between tokens; the MLP does nonlinear computation on each token independently. Superposition is a property of the representations, not the reason the MLP exists. It expands to 4d_model with GELU. 
+
+preLN vs postLN (why did GPT-2 use pre-LN?)
+
+
+
+# Masking?
+In training masking is used becauase all positions are predicted in parallel, so the mask stops token i from seeing the answer. In inference future tokens don't exist yet, but the mask is kept so earlier tokens representaitons atch training (and so KV caching works)
+
+review ts
+
 
 
 # What is Batch Training
@@ -29,7 +39,7 @@ Layer Normalization is placed right before or after the attention and MLP blocks
 For each individaul token's vector in the residual stream, LayerNorm looks across its dmodel dimensions and calculates their mean and variance and normalizes them so that 
 - Values have a mean of 0 (centered) and a variance of 1 (standardized scale)
 
-Applies Learned Scaling and Shiftring (gamma and beta)
+Applies Learned Scaling and Shifting (gamma and beta)
 - gamma is for scaling: multiplies the normalized values to stretch or shrink the variance back to whatever magnitude is optimal for the network.
 - beta for shifting: Adds an offset to move the mean wherever the model needs it.
 
@@ -44,5 +54,20 @@ Attention is all about communication between tokens. It looks across the sequenc
 MKLPs (Multi-Layer Perceptrons) are all about processing and recall. Because they take each token's vector and run it throug the massively expanded hiddne space (4*d_model), they act like a massive knowledge bank or pattern matcher. 
 
 
-# Maximum Likelihood Estimation (MLE) in NLP
+# Maximum Likelihood Estimation (MLE) in NLPs
+
+MLE is the underlying principle used during training (via gradient descent) to adjust the model's weights so that it assigns higher probabilities to the correct next words that actually appeared in the training corpus and lower probabilities to incorrect words.
+
+At inference, MLE manifests as greedy decoding, or picking the token with the highest probability (arg max).
+- Oftentimes results in repetitiveness and dullness. 
+- Modern models actually use sampling techniques (like temperature, top-k, or top-p sampling) to introduce a bit of controlled randomness rather than just picking the absolute maximum likelihood token every time. 
+- Exposure Bias: Models trained strictly on human-written text using MLE are only ever conditioned on ground truth prefixes. If the model makes a small mistake early in a sentence during generation, it has never seen a sentence with its own mistake before, which can cause it to spiral off-topic.
+
+
+
+
+
+
+
+
 

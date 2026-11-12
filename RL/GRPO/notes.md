@@ -50,7 +50,17 @@ advantage = standardized reward
 
 ## KL Divergence
 
-Istead of computing the full, exact KL divergence across all possible outputs, they estimate the divergence using the sampled responses o_i for a given question q. 
+Instead of computing the full, exact KL divergence across all possible outputs, they estimate the divergence using the sampled responses o_i for a given question q. 
 
 
+## Generalized Advantage Estimation (GAE)
+It's a mathematical formula used in Reinforcement Learning (specifically in actor-critic algorithms like PPO) to calculate the advantage (A_t) of an action.
+The main purpose of GAE is to solve a classic balancing act in machine learning: the bias-variance tradeoff
 
+
+## Bias-Variance Tradeoff
+Is a fundamental concept in ML that describes the tension between two kinds of errors a model can make when trying to learn from data.
+1. Bias is the error introduced by a model that is too simple to capture the underlying patterns in the data. High bias leads to underfitting. It makes strong assumptions and ignores important relationships between features.
+- Means that the bias is systematically biased toward being too simple; it stubbornly refuses to bend, no matter what the data looks like.
+2. Variance is when the error introduced by using a model that is too complex and sensitive to the specific training data it saw. High variance leads to overfitting. The model doesn't just learn the underlying signal; it memorizes the random noise and quirks of the specific training set. 
+- The model's predictions vary wildly depending on the exact training data you feed it. If you swap out a few data points, a high-variance model will completely changes its mind an draw a totally different crazy squiggly line. 
